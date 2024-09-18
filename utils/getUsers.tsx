@@ -6,3 +6,4 @@ export const getUsers = cache(async () => {
   const Users = await db.select().from(users).all();
   return Users;
 });
+

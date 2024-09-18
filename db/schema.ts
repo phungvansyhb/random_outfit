@@ -1,3 +1,4 @@
+
 /**
  * more info
  * https://orm.drizzle.team/docs/get-started-sqlite#turso
@@ -23,3 +24,20 @@ export const users = sqliteTable("users", {
 });
 
 export type usersType = typeof users.$inferSelect;
+
+
+export const clothes = sqliteTable("clothes", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  type: text("type").notNull(),
+  color: text("color").notNull(),
+  image: text("image").notNull(),
+  createdAt: integer("created_at")
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: integer("updated_at")
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+})
+
+export type clothesType = typeof clothes.$inferSelect;
